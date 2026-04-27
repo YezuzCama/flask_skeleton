@@ -1,97 +1,101 @@
-# Flask Skeleton - Aplicación de Gestión de Tareas
+# Streamlit Task Manager - Aplicación de Gestión de Tareas
 
-Una aplicación web simple construida con Flask para gestionar listas de tareas (To-Do list).
+Una aplicación web profesional construida con Streamlit para gestionar listas de tareas (To-Do list) con una interfaz visual atractiva y colores profesionales.
 
 ## Descripción
 
-Esta es una aplicación web minimalista que permite a los usuarios:
-- **Agregar** nuevas tareas a una lista
-- **Marcar** tareas como completadas
-- **Visualizar** todas las tareas con su estado actual
+Esta es una aplicación web moderna y visualmente atractiva que permite a los usuarios:
+- **Agregar** nuevas tareas a una lista con validación
+- **Marcar** tareas como completadas/incompletas con casillas de verificación
+- **Visualizar** todas las tareas con su estado actual y diseño profesional
+- **Experiencia** mejorada con efectos hover, sombras y transiciones suaves
 
-Las tareas se almacenan en memoria (no persistentes entre reinicios del servidor).
+Las tareas se almacenan en la sesión de Streamlit (no persistentes entre reinicios del servidor).
 
 ## Características
 
-- Interfaz web sencilla y funcional
-- Validación de entrada de texto vacía
-- Tareas marcadas con tachado visual cuando están completadas
-- Backend en Flask con rutas RESTful
-- Frontend con HTML + Jinja2 templates
+- **Interfaz profesional** con paleta de colores azul moderna
+- **Diseño responsivo** que se adapta a diferentes tamaños de pantalla
+- **Validación de entrada** para evitar tareas vacías
+- **Feedback visual** con mensajes de éxito y error
+- **Tareas completadas** mostradas con tachado y estilo atenuado
+- **Efectos hover** y transiciones suaves en botones y elementos interactivos
+- **Header destacado** con icono y tipografía profesional
+- **Información de ID** visible para cada tarea
+- **Backend** simplificado con estado de sesión de Streamlit
 
 ## Requisitos
 
 - Python 3.7+
-- Flask 3.0.0+
+- Streamlit 1.28.0+
 
 ## Instalación
 
 1. Clona o navega al directorio del proyecto:
 
-   ```bash
-   cd flask_skeleton
-   ```
+    ```bash
+    cd flask_skeleton
+    ```
 
 2. Instala las dependencias:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Uso
 
 1. Ejecuta la aplicación:
 
-   ```bash
-   python app.py
-   ```
+    ```bash
+    streamlit run app.py
+    ```
 
-2. Abre tu navegador y navega a:
-
-   ```
-   http://127.0.0.1:5000/
-   ```
+2. Streamlit abrirá automáticamente tu navegador en:
+    ```
+    http://localhost:8501
+    ```
 
 3. Usa la interfaz para:
-   - Agregar nuevas tareas escribiendo en el campo de texto y presionando "Agregar"
-   - Marcar tareas como completadas presionando el botón "Completar"
+    - Agregar nuevas tareas escribiendo en el campo de texto y presionando "Agregar"
+    - Marcar tareas como completadas/incompletas haciendo clic en la casilla de verificación
+    - Visualizar el estado de todas las tareas con diseño profesional
 
 ## Estructura del Proyecto
 
 ```
 flask_skeleton/
-├── app.py                 # Aplicación principal Flask
+├── app.py                 # Aplicación principal Streamlit
 ├── requirements.txt       # Dependencias del proyecto
-├── templates/
-│   └── index.html        # Template HTML principal
 └── README.md             # Este archivo
 ```
 
 ## Arquitectura
 
-### Backend (`app.py`)
+### Aplicación Principal (`app.py`)
 
-- **Flask App**: Configuración básica con modo debug habilitado
-- **Rutas**:
-  - `GET /` - Muestra la lista de tareas
-  - `POST /` - Procesa acciones (agregar/completar tareas)
+- **Streamlit App**: Configuración con tema centrado y personalización visual
+- **Estado de Sesión**: Manejo de tareas y contador de IDs mediante `st.session_state`
 - **Funciones**:
-  - `agregar_tarea(texto)` - Añade una tarea y devuelve su ID
-  - `completar_tarea(id)` - Marca una tarea como completada
+  - `add_task(text)` - Añade una tarea con validación y feedback visual
+  - `toggle_task(task_id)` - Alterna el estado de completado de una tarea
 
-### Frontend (`templates/index.html`)
+### Personalización Visual
 
-- Template Jinja2 que renderiza la lista de tareas
-- Formulario para agregar nuevas tareas
-- Botones para completar tareas existentes
-- Visualización condicional (tachado) para tareas completadas
+- **CSS Customizado**: Estilos profesionales con variables de color azul moderno
+- **Componentes Destacados**:
+  - Header principal con tamaño y peso de fuente aumentados
+  - Tarjetas de tarea con sombras, bordes redondeados y bordes laterales coloreados
+  - Efectos hover y transiciones en botones
+  - Estilos diferenciados para tareas completadas vs pendientes
+  - Campos de entrada con enfoque visual y validación
 
 ## Notas
 
-- Las tareas se almacenan en memoria, por lo que se perderán al reiniciar el servidor
+- Las tareas se almacenan en la sesión de Streamlit, por lo que se perderán al reiniciar la aplicación
 - No hay autenticación ni autorización (aplicación de demostración)
 - No hay persistencia de datos (sin base de datos)
-- El modo debug está habilitado - **no usar en producción**
+- Diseñado para desarrollo y demostración - fácil de extender con persistencias
 
 ## Licencia
 
